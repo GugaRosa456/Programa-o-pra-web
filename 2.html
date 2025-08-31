@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 2</title>
+
+</head>
+
+a regra 1 significaa que o primeiro li será vermelho <br>
+a regra 2 significa que todos que tiverem a classe churras serão verde <br>
+a regra 3 significa que todos que tiverem a classe fruta serão cinza <br>
+a regra 4 significa que quando uma classe churras que virem depois de 1 li serão pretas<br>
+a regra 5 signifaca que todos que tiverem a classe churras e tiverem o draggable em true( siginfica que o elemento pode ser arrastado. fontes:https://pt.stackoverflow.com/questions/119021/quando-usar-o-atributo-draggable-no-elemento-tag-html) serão magenta <br>
+a regra 6 signifaca que os id lip1, lip2, lip3 com nenhuma condição são da cor azul <br>
+a regra 7 signifaca que todos que tiverem o id lip3 e a classe fruta serão laranja <br>
+a regra 8 siginfica que se o li dentro de um ol que tem o id lip5 será rosa <br>
+<br>
+o item 1  é o primeiro item da lista e terá a cor vermelho <br>
+o item 2 tem a classe fruta, então ele tem cor cinza <br>
+o item 3 tem a classe fruta, más tem o id lip2 siginicando que ele tem a cor azul <br>
+o item 4 tem o id lip3 e a classe fruta, então tem a cor laranja <br>
+o item 5 tem a classe fruta e o id lip4 que não tem parametro, logo tem a cor cinza <br>
+o item 6 e 7 vem depois de dois li e tem a classe churras, logo tem a cor preta <br>
+o item 8 tem a cor magenta por cause de ter a classe churras e ser arrastavel <br>
+<br> 
+fontes
+https://moodle3.ifsc.edu.br/pluginfile.php/810050/mod_resource/content/0/Semana%2001%20-%20Slides%20-%20%20Linguagem%20de%20Marca%C3%A7%C3%A3o%20HTML%20Programa%C3%A7%C3%A3o%20para%20Internet%20-%20Linguagem%20de%20Marca%C3%A7%C3%A3o%20HTML%20%20-%20Slides.pdf
+http://devmedia.com.br/html-br-quebra-de-linha-no-html/43507
+slides do moodle
+</html>
+
+
+<head>
+    <title>Exemplo especificidade de seletores</title>
+    <style>
+        /*regra 1*/ li{color:red;}
+        /*regra 2*/ .churras{color:green;}
+        /*regra 3*/ .fruta{color:gray}
+        /*regra 4*/ li+li.churras{color: black;}
+        /*regra 5*/ .churras[draggable="true"]{color: magenta;}
+        /*regra 6*/ #lip1,#lip2,#lip3{color:blue}
+        /*regra 7*/ #lip3.fruta{color:orange}
+        /*regra 8*/ ol>li.churras#lip5{color:purple}
+    </style>
+</head>
+<body>
+    <ol>
+        <!--item 1--> <li id="lip0">Abacaxi</li>
+        <!--item 2--> <li class="fruta">Melão</li>
+        <!--item 3--> <li id="lip2" class="fruta">Pera</li>
+        <!--item 4--> <li id="lip3" class="fruta">Uva</li>
+        <!--item 5--> <li id="lip4" class="fruta">Maçã</li>
+        <!--item 6--> <li class="churras">Carne</li>
+        <!--item 7--> <li class="churras">Linguiça</li>
+        <!--item 8--> <li id="lip7" class="churras" draggable="true">Pão de alho</li>
+    </ol>
+</body>
+</html>
