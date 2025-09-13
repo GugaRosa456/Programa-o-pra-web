@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 4</title>
+ <style>
+        
+        .box{
+            border: 1px solid black;
+            width: 90px;
+            height: 600px;
+            border-radius: 10px;
+
+        }
+        .container{
+            height: 100dvh;
+            display: flex;
+         /* flex-direction: row;
+            flex-wrap: wrap-reverse; */
+            flex-flow: row ;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        .box:hover{
+        flex-grow: 100;
+           
+        }   
+        .box{
+         flex-shrink: 1;
+        }
+        
+        .img{
+            width: 100px;
+            height: 100px;
+        }
+
+       #item1{order: 1;}
+       #item2{order: 2;}
+       #item3{order: 3;}
+       #item4{order: 4;}
+       #item5{order: 5;}
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="box" id="item1">
+        <img src="p1.jpg" alt="1">
+        </div>
+        <div class="box" id="item2">
+<img src="p2.jpg" alt="2">
+        </div>
+        <div class="box" id="item3">
+<img src="p3.jpg" alt="3">
+        </div>
+     <div class="box" id="item4">
+<img src="p4.jpg" alt="4">
+        </div>
+        <div class="box" id="item5">
+<img src="p5.jpg" alt="5">
+        </div>
+    </div>
+
+</body>
+</html>
