@@ -11,6 +11,13 @@
             width: 90px;
             height: 600px;
             border-radius: 10px;
+            background-image: url("p1.jpg");
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 10px;
 
         }
         .container{
@@ -21,6 +28,16 @@
             flex-flow: row ;
             justify-content: center;
             align-items: center;
+            padding: 10px;
+        }
+        .box > div{
+            background-image: url("./p1.jpg");
+            width: 60px;
+            height: 60px;
+            border-radius: 60px;
+            flex-flow: column ;
+            justify-content: left;
+            align-items: left;
             
         }
         .box:hover{
@@ -36,30 +53,31 @@
             height: 100px;
         }
 
-       #item1{order: 1;}
-       #item2{order: 2;}
-       #item3{order: 3;}
-       #item4{order: 4;}
-       #item5{order: 5;}
+       #item1{background-image: url("p1.jpg");}
+       #item2{background-image: url("p2.jpg");}
+       #item3{background-image: url("p3.jpg");}
+       #item4{background-image: url("p4.jpg");}
+       #item5{background-image: url("p5.jpg");}
     </style>
 </head>
 <body>
 
     <div class="container">
         <div class="box" id="item1">
-        <img src="p1.jpg" alt="1">
+            <div></div>
+        
         </div>
         <div class="box" id="item2">
-<img src="p2.jpg" alt="2">
+               <div></div>
         </div>
         <div class="box" id="item3">
-<img src="p3.jpg" alt="3">
+<div></div>
         </div>
      <div class="box" id="item4">
-<img src="p4.jpg" alt="4">
+        <div></div>
         </div>
         <div class="box" id="item5">
-<img src="p5.jpg" alt="5">
+<div></div>
         </div>
     </div>
 
