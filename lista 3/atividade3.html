@@ -1,72 +1,92 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Atividade 4</title>
+  <title>Atividade 3</title>
   <style>
- *{border-radius: 10px;text-align: center;font-size: 20px;}
+    * {border-radius: 20px;box-sizing: border-box;
+    }
 
     body {
       display: grid;
-      height: 100vh;
-      grid-template-areas:
-        "header header header"
-        "left Asside  banner right Asside"
-        "left   main   right"
-        "lowContent    main   right"
-        "footer footer footer";
-      grid-template-columns: 1fr 3fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+      height: 100dvh;
+      grid-template-areas: 
+        "header1 header1 header header2"
+        "nav main main main"
+        "nav main main main";
+      grid-template-rows: 1fr 3fr 1fr;
     }
 
-  
-    #caixinha1{ 
-        grid-area: header;
-         background: yellow; }
-    #caixinha2
-    { grid-area: banner;
-         background: red; }
-    #caixinha3
-    { grid-area: left;
-         background: green; }
-    #caixinha4{
-         grid-area: right;
-         background: orange; }
-    #caixinha5{
-        grid-area: main;
-         background: deepskyblue; }
-    #caixinha6{
-         grid-area: low;
-         background: green; }
-    #caixinha7{
-         grid-area: footer;
-         background: dodgerblue; }
+    .box {
+      margin: 5px;
+    }
 
- 
-    @media screen and (max-width: 600px) {
-      body {
-        grid-template-areas:
-          "header"
-          "banner"
-          "left"
-          "main"
-          "right"
-          "low"
-          "footer";
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
-      }
+    #caxinha1 {
+      background: rgb(54, 53, 53);
+      grid-area: header1;
+       font-size: 50px;
+         color: white;
+    }
+
+    #caxinha2 {
+      background: rgb(54, 53, 53);
+      grid-area: header2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 50px;
+        color: white;
+        align-items: baseline;
+        justify-content: left;
+    }
+
+    #caxinha3 {
+      background: rgb(54, 53, 53);
+      grid-area: main;
+      display: grid;
+      grid-template-areas: 
+        "headere headerf headerg"
+        "headerm maini mainj";
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+       font-size: 50px;
+     
+    }
+
+    #caxinha6  { background:lightgray;      
+      grid-area: headere; }
+    #caxinha7  { background: lightgray;          
+      grid-area: headerf; }
+    #caxinha8  { background: lightgray;     
+      grid-area: headerg; }
+    #caxinha9  { background: lightgray; 
+      grid-area: headerm; }
+    #caxinha10 { background: lightgray;       
+      grid-area: maini; }
+    #caxinha11 { background: lightgray;        
+      grid-area: mainj; }
+
+    #caxinha4 {
+      background: rgb(54, 53, 53);
+      grid-area: nav;
+       font-size: 50px;
+       color: white;
     }
   </style>
 </head>
 <body>
-  <div id="caixinha1">Header</div>
-  <div id="caixinha2">Banner</div>
-  <div id="caixinha3">Left Aside</div>
-  <div id="caixinha4">Right Aside</div>
-  <div id="xaixinha5">Main Content</div>
-  <div id="caixinha6">Low Content</div>
-  <div id="caixinha7">Footer</div>
+  <div class="box" id="caxinha1">A</div>
+  <div class="box" id="caxinha2">B</div>
+  <div class="box" id="caxinha4">C</div>
+  <div class="box" id="caxinha5">D</div>
+  <div class="box" id="caxinha3">
+    <div class="box" id="caxinha6">E</div>
+    <div class="box" id="caxinha7">F</div>
+    <div class="box" id="caxinha8">G</div>
+    <div class="box" id="caxinha9">M</div>
+    <div class="box" id="caxinha10">I</div>
+    <div class="box" id="caxinha11">J</div>
+  </div>
 </body>
 </html>
