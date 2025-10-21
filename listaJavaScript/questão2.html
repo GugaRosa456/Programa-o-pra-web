@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Tipos de Variáveis</title>
+</head>
+<body>
+    
+    <button onclick="mostrarTipos()">aperta aí</button>
+
+    
+    <p id="numero">Tipo da variável: </p>
+    <p id="string">Tipo da variável: </p>
+    <p id="booleano">Tipo da variável: </p>
+    <p id="undefined">Tipo da variável: </p>
+    <p id="null">Tipo da variável: </p>
+    <p id="object">Tipo da variável: </p>
+    <p id="array">Tipo da variável: </p>
+    <p id="operacao1"></p>
+    <p id="operacao2"></p>
+    <p id="operacao3"></p>
+    <p id="operacao4"></p>
+    <p id="operacao5"></p>
+
+    <script>
+        function mostrarTipos() {
+            
+            var numero = 1234; 
+            var texto = "asdfghj";
+            var booleano = false;
+            var indefinido;      
+            var nulo = null;
+            var objeto = { nome: "João", idade: 30 }; 
+            var array = [1, 2, 3, 4]; 
+            document.getElementById("numero").innerText = "Tipo da variável:" + typeof numero;
+            document.getElementById("string").innerText = "Tipo da variável:" + typeof texto;
+            document.getElementById("booleano").innerText = "Tipo da variável:" + typeof booleano;
+            document.getElementById("undefined").innerText = "Tipo da variável:" + typeof indefinido;
+            document.getElementById("null").innerText = "Tipo da variável null:" + typeof nulo;
+            document.getElementById("object").innerText = "Tipo da variável" + typeof objeto;
+            document.getElementById("array").innerText = "Tipo da variável " + typeof array;
+        }
+    </script>
+</body>
+</html>

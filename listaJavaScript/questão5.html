@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão5</title>
+</head>
+<body>
+    <h1>Sorteio de Números</h1>
+    <input type="number" id="NumeroMin" step="1" placeholder="Min">
+    <input type="number" id="NumeroMax" step="1" placeholder="Max">
+    <button id="Button" onclick="Sortear">Sortear</button>
+    <div id="Numeros" ></div>
+    <script>
+     let min = document.querySelector("#NumeroMin")
+     let max = document.querySelector("#NumeroMax")
+     let numeros = document.querySelector("#Numeros")
+     let button = document.querySelector("#Button")
+
+    function Sortear(min, max) {
+     return Math.random(numeros) * (max - min) + min;
+}
+// arrumar codigo depois
+    </script>
+</body>
+</html>

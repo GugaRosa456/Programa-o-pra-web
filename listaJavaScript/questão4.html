@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão4</title>
+</head>
+<body>
+    <input type="text" id="nome" placeholder="Nome">
+    <input type="number" id="peso" step="0.1" placeholder="Peso">
+    <input type="number" id="altura" step="0.01" placeholder="Altura">
+    <button>Calcular</button>
+    <p id="resultadoIMC"></p>
+    <p id="classificacao"></p>
+    <img id="imgPerfil">
+    
+    <script>
+        let nomeI = document.querySelector("#nome")
+        let pesoI = document.querySelector("#peso")
+        let alturaI = document.querySelector("#altura")
+        let buttonI = document.querySelector("button")
+        let imcI = document.querySelector("#resultadoIMC")
+        let imgI = document.querySelector("#imgPerfil")
+
+        buttonI.addEventListener("click", () => {
+            let nome = nomeI.value;
+            let peso = pesoI.value;
+            let altura = alturaI.value;
+
+         if(!nome || isNaN(peso) || isNaN(altura) || altura <=0 || peso <=0){
+            alert("Preencha todos os campos");
+         }else{
+
+         
+
+            let imc = peso / (altura * altura);
+            imcI.innerText = imc;
+            imgI.innerText = imgPerfil;
+
+            if (imc < 18.5) {
+                imgI.src = "img/abaixopeso.png"
+            }
+            else if (imc >= 18.5 && imc < 24.9) {
+                imgI.src = "img/normal.png"
+            }
+            else if (imc >= 24.9 && imc < 29.9) {
+                imgI.src = "img/sobrepeso.png"
+            }
+            else if (imc >= 29.9 && imc < 34.9) {
+                imgI.src= "img/obesidade1.png"
+            }
+            else if (imc >= 34.9 && imc < 39.9) {
+                imgI.src = "img/obesidade2.png"
+            }
+            else if (imc >= 39.9){
+                imgI.src = "img/obesidade3.png"
+            }
+        }
+        })
+    </script>
+</body>
+</html>
