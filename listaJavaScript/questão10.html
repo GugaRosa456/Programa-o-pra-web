@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Questão10 - Calculadora</title>
+  <style>
+    :root { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+    .container { width: 340px; margin: 48px auto; }
+    .display {
+      height: 64px;
+      background:#111;
+      color:#0f0;
+      font-size:28px;
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      padding: 8px 12px;
+      border-radius:8px;
+      box-shadow: inset 0 -6px 12px rgba(0,0,0,0.6);
+      word-break:break-all;
+    }
+    .buttons {
+      display:grid;
+      grid-template-columns: repeat(4,1fr);
+      gap:10px;
+      margin-top:14px;
+    }
+    button {
+      padding:14px;
+      font-size:18px;
+      border-radius:8px;
+      border: none;
+      background:#eee;
+      cursor:pointer;
+      box-shadow: 0 3px 0 rgba(0,0,0,0.12);
+    }
+    button.op { background:#f39c12; color:#fff; }
+    button.eq { grid-column: span 2; background:#2b8aef; color:#fff; }
+    button.clear { background:#e74c3c; color:#fff; }
+    button:active { transform: translateY(1px); }
+    .small { font-size:12px; color:#666; margin-bottom:6px; text-align:right; }
+  </style>
+</head>
+<body>
+  <div class="container" role="application" aria-label="Calculadora">
+    <div class="small" id="memory" aria-hidden="true"></div>
+    <div id="display" class="display" role="textbox" aria-readonly="true">0</div>
+    <div class="buttons" id="buttons" role="group" aria-label="Teclado da calculadora"></div>
+  </div>
+
+  <script>
+  (function(){
+    const display = document.getElementById('display');
+    const buttons = document.getElementById('buttons');
+    const memoryLabel = document.getElementById('memory');
+
+    // Estado
+    let current = '0';
+    let previous = null;
+    let op = null;
+    let waiting = false; // se true, próximo dígito substitui o display
+
+    // Layout dos botões
+    const keys = [
+      {t:'C', cls:'clear', a: clearAll},
+      {t:'DEL', a: backspace},
+      {t:'%', a: percent},
+      {t:'/', cls:'op', a: ()=>setOp('/')},
+
+      {t:'7'}, {t:'8'}, {t:'9'}, {t:'*', cls:'op', a: ()=>setOp('*')},
+      {t:'4'}, {t:'5'}, {t:'6'}, {t:'-', cls:'op', a: ()=>setOp('-')},
+      {t:'1'}, {t:'2'}, {t:'3'}, {t:'+', cls:'op', a: ()=>setOp('+')},
+      {t:'0', wide:true}, {t:'.'}, {t:'=', cls:'eq', a: calculate}
+    ];
+
+    // Cria botões
+    for (const k of keys) {
+      const btn = document.createElement('button');
+      btn.textContent = k.t;
+      if (k.cls) btn.classList.add(k.cls);
+      if (k.wide) btn.style.gridColumn = 'span 2';
+      btn.addEventListener('click', () => {
+        if (k.a) k.a(k.t);
+        else appendDigit(k.t);
+      });
+      buttons.appendChild(btn);
+    }
+
+    function update() {
+      display.textContent = current;
+      memoryLabel.textContent = (previous !== null && op) ? `${previous} ${op}` : '';
+    }
+
+    function appendDigit(d) {
+      if (waiting) { current = '0'; waiting = false; }
+      if (d === '.') {
+        if (!current.includes('.')) current += '.';
+      } else {
+        if (current === '0') current = d;
+        else current += d;
+      }
+      update();
+    }
+
+    function setOp(o) {
+      if (op && !waiting) {
+        // realiza cálculo encadeado
+        calculate();
+      }
+      previous = parseFloat(current);
+      op = o;
+      waiting = true;
+      update();
+    }
+
+    function calculate() {
+      if (!op || previous === null) return;
+      const a = previous;
+      const b = parseFloat(current);
+      let res;
+      switch(op) {
+        case '+': res = a + b; break;
+        case '-': res = a - b; break;
+        case '*': res = a * b; break;
+        case '/':
+          if (b === 0) { showError(); return; }
+          res = a / b; break;
+        default: return;
+      }
+      // Formata resultado para evitar notação desnecessária
+      if (!Number.isFinite(res)) { showError(); return; }
+      // Limita casas e remove zeros finais
+      current = String(parseFloat(res.toPrecision(12))).replace(/\.0+$/, '');
+      previous = null;
+      op = null;
+      waiting = true;
+      update();
+    }
+
+    function clearAll() {
+      current = '0'; previous = null; op = null; waiting = false; update();
+    }
+
+    function backspace() {
+      if (waiting) { current = '0'; waiting = false; update(); return; }
+      if (current.length <= 1 || (current.length === 2 && current.startsWith('-'))) current = '0';
+      else current = current.slice(0, -1);
+      update();
+    }
+
+    function percent() {
+      const v = parseFloat(current);
+      if (Number.isNaN(v)) return;
+      current = String(v / 100);
+      waiting = true;
+      update();
+    }
+
+    function showError() {
+      current = 'Erro';
+      update();
+      previous = null; op = null; waiting = true;
+      setTimeout(()=> { current = '0'; waiting = false; update(); }, 1200);
+    }
+
+    // Suporte teclado físico
+    window.addEventListener('keydown', (e) => {
+      if (e.key >= '0' && e.key <= '9') { appendDigit(e.key); return; }
+      if (e.key === '.') { appendDigit('.'); return; }
+      if (['+','-','*','/'].includes(e.key)) { setOp(e.key); return; }
+      if (e.key === 'Enter' || e.key === '=') { e.preventDefault(); calculate(); return; }
+      if (e.key === 'Backspace') { backspace(); return; }
+      if (e.key === 'Escape') { clearAll(); return; }
+      if (e.key === '%') { percent(); return; }
+    });
+
+    // Inicializa
+    update();
+  })();
+  </script>
