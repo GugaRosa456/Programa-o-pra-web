@@ -23,11 +23,28 @@ cadastra_usuario("João Silva", "joao", "12345");
 function delete_usuario($id){
 $con= connecta_bd();
 $stmt =$con->prepare("DELETE FROM usuarios WHERE id = :id");
-$stmt->bindParam(':id', $id);
+$stmt->bindparam(':id', $id);
 return $stmt->execute();
 }
 //delete_usuario(1); 
 function update_usuario ($id, $nome, $login, $senha){
     $con= connecta_bd();
+    $stmt=$con->prepare("UPDATE usuarios SET nome = :nome, login = :login, senha = :senha WHERE id = :id");
+    $stmt->bindparam(':id', $id);
+    $stmt->bindparam(':nome', $nome);
+    $stmt->bindparam(':login', $login);
+    $stmt->bindparam(':senha', $senha);
+    return $stmt->execute();
 }
+function get_usuario($id){
+    $con= connecta_bd();
+    $stmt=$con->prepare("SELECT * FROM usuarios WHERE id = :id");
+    $stmt->bindparam(':id', $id);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+//echo var_dump(get_usuario(2));
+echo "<pre>";
+print_r(var_dump(get_usuarios()));
+echo "</pre>";
 ?>
