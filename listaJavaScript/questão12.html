@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 12</title>
+</head>
+<body>
+    <input type="text" id="nameInput" placeholder="Digite seu nome">
+  <button id="saveButton">Salvar</button>
+  <p id="greeting"></p>
+<script>
+const nameInput = document.getElementById("nameInput")
+const button = document.getElementById("saveButton")
+
+button.onclick = function () {
+const nome = nameInput.value;
+localStorage.setItem("nome",nome)
+alert(nome)
+};
+  </script>
+</body>
+</html>

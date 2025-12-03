@@ -3,15 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Questão9</title>
     <style>
-        body{
-            display: flex;
-
+        .cor1{
+            background-color: rgb(5, 102, 141);
+            width: 100vw;
+            height: 100vh;
+        }
+        .cor2{
+            background-color: rgb(66, 122, 161);
+            width: 100vw;
+            height: 100vh;
+        }
+        .cor3{
+            background-color: rgb(235, 242, 250);
+            width: 100vw;
+            height: 100vh;
+        }
+        .cor4{
+            background-color: rgb(103, 148, 54);
+            width: 100vw;
+            height: 100vh;
+        }
+        .cor5{
+            background-color: rgb(165, 190, 0);
+            width: 100vw;
+            height: 100vh;
         }
     </style>
 </head>
-///
 <body>
+     <div id="tela" class="cor1" onclick="mudarCor()"></div>
+    <script>
+        const cores = ["cor1", "cor2", "cor3", "cor4", "cor5"];
+        let tela = document.getElementById("tela");
+
+        function mudarCor() {
+            let cor = cores[Math.floor(Math.random() * cores.length)];
+            tela.className = cor;
+        }
+
+        document.addEventListener("keydown", function(e){
+            if (e.code === "Space") {
+                mudarCor();
+            }
+        });
+
+    </script>
 </body>
-</html> 
+</html>
