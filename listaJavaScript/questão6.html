@@ -6,6 +6,22 @@
     <title>Questão6</title>
 </head>
 <body>
-    não realizada
+   <input type="text" id="numMin" placeholder="Numero minimo">
+     <input type="text" id="numMax" placeholder="Numero maximo">
+  <button id="saveButton">calcular</button>
+  <p id="greeting"></p>
+  <script>
+    const numMin = document.getElementById("numMin")
+    const numMax = document.getElementById("numMax")
+    const button = document.getElementById("saveButton")
+ const greeting = document.getElementById("greeting");
+
+    button.onclick = function () {
+    const numero = numMin
+    const numero1 = numMax
+    let Resultado = [Math.floor(Math.random() * (numMax - numMin) + numMin)];
+     greeting.textContent = "numero:" + Resultado;
+  };
+  </script>
 </body>
 </html>

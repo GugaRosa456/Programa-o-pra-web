@@ -12,12 +12,13 @@
 <script>
 const nameInput = document.getElementById("nameInput")
 const button = document.getElementById("saveButton")
+ const greeting = document.getElementById("greeting");
 
 button.onclick = function () {
 const nome = nameInput.value;
 localStorage.setItem("nome",nome)
-alert(nome)
-};
+  greeting.textContent = "Nome:" + nome;
+  };
   </script>
 </body>
 </html>
