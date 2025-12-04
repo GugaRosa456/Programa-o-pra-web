@@ -12,10 +12,10 @@ $email = $_GET['email'];
 $peso = $_POST['peso'];
 $altura = $_POST['altura'];
 $imc = $peso / ($altura * $altura);
-echo "Nome: $nome"; <br>
-echo "Email: $email"; <br>
-echo "Peso: $peso "; <br>
-echo "Altura: $altura "; <br>
+echo "Nome: $nome"; 
+echo "Email: $email"; 
+echo "Peso: $peso "; 
+echo "Altura: $altura "; 
 echo "IMC: " . number_format($imc);
 ?>
 </body>

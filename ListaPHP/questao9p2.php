@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="questão9p3.php" method="POST">
+    <form action="questao9p3.php" method="POST">
      <p>Peso</p>
      <input type="text" name="Peso" required> 
      <p>Altura</p>
