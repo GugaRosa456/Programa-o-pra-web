@@ -7,10 +7,10 @@
 </head>
 <body>
 <?php
-$nome = $_GET['nome'];
-$email = $_GET['email'];
-$peso = $_POST['peso'];
-$altura = $_POST['altura'];
+$nome = $_GET['Nome'];
+$email = $_GET['Email'];
+$peso = $_POST['Peso'];
+$altura = $_POST['Altura'];
 $imc = $peso / ($altura * $altura);
 echo "Nome: $nome"; 
 echo "Email: $email"; 
