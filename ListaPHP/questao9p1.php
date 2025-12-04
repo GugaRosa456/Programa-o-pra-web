@@ -6,12 +6,16 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="questão9p2.php" method="get">
+    <form action="questao9p2.php" method="get">
      <p>Nome</p>
      <input type="text" name="Nome" required> 
      <p>Email</p>
   <input type="text" name="Email" required> 
      <input type="submit" value="Informar">
+     
+
+</input>
+     
 </form>
 </body>
 </html>
