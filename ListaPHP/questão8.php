@@ -13,8 +13,8 @@
 <?php 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 %String = $_POST['String'];
-
 }
+<p>não concluida, a unica da lista.</p>
 ?>
 </body>
 </html>

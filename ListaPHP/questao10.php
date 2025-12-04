@@ -16,7 +16,7 @@
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $min = $_POST['numMin'];
 $max = $_POST['numMax'];
-for($i = $numeros; $i < $max && $i > min; i++){
+for($i = $numeros; $i < $max && $i > min; $i++){
     echo "<span> $i </span>";
  }
 }

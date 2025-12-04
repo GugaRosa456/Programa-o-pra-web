@@ -17,14 +17,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $lado1 = $_POST['Lado1'];
 $lado2 = $_POST['Lado2'];
 $lado3 = $_POST['Lado3'];
-if($lado1 == $lado2 && $lado2 == $lado3 $$ $lado3 == $lado1){
+if($lado1 == $lado2 && $lado2 == $lado3 && $lado3 == $lado1){
 echo "o seu triangula é Equilátero";
-}else{
-echo "o seu triangulo é Escaleno";
 }
-elseif(($lado1 == $lado2 && $lado1 != $lado3) || ($lado1 == $lado3 && $lado1 != $lado2)){
+elseif(($lado1 == $lado2 && $lado1 != $lado3) || ($lado1 == $lado3 && $lado1 != $lado2) || ($lado2 == $lado3 && $lado1 != $lado2) ){
 echo "o seu triangulo é Isósceles";
 }
+else{
+echo "o seu triangulo é Escaleno";
+}
+
 }
 ?>
 <p> sites utilizados</p>

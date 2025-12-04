@@ -8,7 +8,7 @@
 <body>
    <?php 
    $array = array(
-   100 => "100";
+   100 => "100"
    );
 for($i= array; $i < array; $i++){
     echo $i;

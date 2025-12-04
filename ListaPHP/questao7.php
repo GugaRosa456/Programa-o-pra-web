@@ -15,16 +15,16 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $numero = $_POST['numero'];
     function Tabuada($numero){
-        echo $numero * 1; <br>
-        echo $numero * 2; <br>
-        echo $numero * 3;  <br>
-        echo $numero * 4;  <br>
-        echo $numero * 5; <br>
-        echo $numero * 6; <br>
-        echo $numero * 7; <br>
-        echo $numero * 8; <br>
-        echo $numero * 9; <br>
-        echo $numero * 10; <br>
+        echo $numero * 1;
+        echo $numero * 2; 
+        echo $numero * 3; 
+        echo $numero * 4;  
+        echo $numero * 5; 
+        echo $numero * 6; 
+        echo $numero * 7; 
+        echo $numero * 8; 
+        echo $numero * 9; 
+        echo $numero * 10; 
     }
     Tabuada($numero); 
 }
